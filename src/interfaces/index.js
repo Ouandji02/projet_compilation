@@ -1,1 +1,1 @@
-alert("bonjour")
+/* alert("bonjour") */

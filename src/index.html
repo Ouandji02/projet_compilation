@@ -13,6 +13,7 @@
     <script src="./interfaces/index.js" defer></script>
     <script src="./fonctions/getAlphabet.js" defer></script>
     <script src="./fonctions/verificationLangage.js"></script>
+    <script src="./fonctions/verificationMot.js"></script>
 
     <script>
         $(function(){
@@ -76,6 +77,14 @@
             $('#enter-langage').button().on('click', function(){
                 dialog2.dialog("open")
             })
+            $('#verify').button().on('click', function(){
+                const success = verificationMot(document.querySelector('#mot').value, document.querySelector('#langage').value)
+                if(success){
+                    alert('bon')
+                }else{
+                    alert('ce mot ne respecte pas le langage')
+                }        
+            })
         })
     </script>
 
@@ -114,10 +123,10 @@
                 <div class="row mt-5">
                     <div class="col-md-6">
                         <label for="mot">Entrer le mot a verifier</label>
-                        <input type="text" class="form-control" id="mot">
+                        <input type="text" id='mot' class="form-control" id="mot">
                     </div>
                     <div class="col-md-3 mt-4">
-                        <button class="btn btn-primary w-100">Verifier</button>
+                        <button id="verify" class="btn btn-primary w-100">Verifier</button>
                     </div>
                     <div class="col-md-3 mt-4">
                         <button class="btn btn-success w-100">Tester l'automate</button>

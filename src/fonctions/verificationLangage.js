@@ -29,6 +29,9 @@ const verificationLangage = (alphabet,langage) => {
         if(langage[i] == "." &&  ['*','.','|'].indexOf(langage[i+1])!=-1){
             return false
         }
+        if(i==langage.length-1 && ['.','|'].indexOf(langage[i])!=-1){
+            return false
+        }
     }
     if(correct != 0){
         return false

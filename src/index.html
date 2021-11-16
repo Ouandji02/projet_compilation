@@ -11,6 +11,8 @@
     <script src="assets/jquery-ui/jquery-ui.js" defer></script>
     <script src="assets/bootstrap/bootstrap.js" defer></script>
     <script src="./interfaces/index.js" defer></script>
+    <script src="./fonctions/getAlphabet.js" defer></script>
+    <script src="./fonctions/verificationLangage.js"></script>
 
     <script>
         $(function(){
@@ -25,8 +27,13 @@
                     dialog2.dialog( "close" );
                 },
                 Accept: function(){
-                    document.querySelector('#enter-langage').innerHTML = document.querySelector('#langage').value
-                    dialog2.dialog( "close" );
+                   const success =  verificationLangage(document.querySelector('#alphabet').value, document.querySelector('#langage').value)
+                   if(success){
+                       document.querySelector('#enter-langage').innerHTML = document.querySelector('#langage').value
+                       dialog2.dialog("close")
+                   }else{
+                       alert("Le langage ne respecte pas l'alphabet ou la semantique")
+                   }
                 }
                 },
                 close: function() {
@@ -44,8 +51,13 @@
                     dialog.dialog( "close" );
                 },
                 Accept: function(){
+                    const success = getAlphabet(document.querySelector('#alphabet').value);
+                   if(success){ 
                     document.querySelector('#enter-alphabet').innerHTML = document.querySelector('#alphabet').value
                     dialog.dialog( "close" );
+                    }else{
+                       alert("le langage entré n'a pas les caractère qu'il faut(lettre de l'alphabet ou nombre"); 
+                   }
                 }
                 },
                 close: function() {
@@ -136,7 +148,7 @@
        
         <form>
           <fieldset>
-            <center><label for="name">Entrer l'alphabet</label></center>
+            <center><label for="name">Entrer le langage</label></center>
            <br><center><input type="text" name="name" id="langage" value="" class="text ui-widget-content ui-corner-all"></center> 
             <!-- Allow form submission with keyboard without duplicating the dialog button -->
             <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">

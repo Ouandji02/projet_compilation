@@ -15,6 +15,24 @@
     <script>
         $(function(){
             var dialog;
+            var dialog2 = $( "#dialog-form2" ).dialog({
+                autoOpen: false,
+                height: 400,
+                width: 350,
+                modal: true,
+                buttons: {
+                Cancel: function() {
+                    dialog2.dialog( "close" );
+                },
+                Accept: function(){
+                    document.querySelector('#enter-langage').innerHTML = document.querySelector('#langage').value
+                    dialog2.dialog( "close" );
+                }
+                },
+                close: function() {
+                   
+                },
+            });
           dialog = $( "#dialog-form" ).dialog({
                 autoOpen: false,
                 height: 400,
@@ -24,22 +42,28 @@
                /*  "Create an account": addUser,*/
                 Cancel: function() {
                     dialog.dialog( "close" );
+                },
+                Accept: function(){
+                    document.querySelector('#enter-alphabet').innerHTML = document.querySelector('#alphabet').value
+                    dialog.dialog( "close" );
                 }
                 },
                 close: function() {
-                form[ 0 ].reset();
                 /*allFields.removeClass( "ui-state-error" );*/
-                }
+                },
             });
 
-            form = dialog.find( "form" ).on( "submit", function( event ) {
-                event.preventDefault();
-                addUser();
-            });
+        //  form = dialog.find( "form" ).on( "submit", function( event ) {
+        //    event.preventDefault();
+        //        addUser();
+        //    });
 
-            $( "#create-user" ).button().on( "click", function() {
+            $( "#enter-alphabet" ).button().on( "click", function() {
                 dialog.dialog( "open" );
             });
+            $('#enter-langage').button().on('click', function(){
+                dialog2.dialog("open")
+            })
         })
     </script>
 
@@ -56,13 +80,12 @@
                     <div class="col-md-6">
                         <div class="row">
                             <div class="col-md-12">
-                                <button id="create-user">Create new user</button>
-                                <button class="btn btn-secondary w-100 btn-lg">Entrer l'alphabet</button>
+                                <button id="enter-alphabet" class="btn btn-secondary w-100 btn-lg">Entrer l'alphabet</button>
                             </div>
                         </div>
                         <div class="row mt-3">
                             <div class="col-md-12">
-                                <button class="btn btn-secondary w-100 btn-lg">Entrer le langage</button>
+                                <button id="enter-langage" class="btn btn-secondary w-100 btn-lg">Entrer le langage</button>
                             </div>
                         </div>
                     </div>
@@ -98,18 +121,23 @@
             </div>
         </div>
     </div>
-    <div id="dialog-form" title="Create new user">
-        <p class="validateTips">All form fields are required.</p>
+    <div id="dialog-form" title="Enter alphabet">
        
         <form>
           <fieldset>
-            <label for="name">Name</label>
-            <input type="text" name="name" id="name" value="Jane Smith" class="text ui-widget-content ui-corner-all">
-            <label for="email">Email</label>
-            <input type="text" name="email" id="email" value="jane@smith.com" class="text ui-widget-content ui-corner-all">
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" value="xxxxxxx" class="text ui-widget-content ui-corner-all">
+            <center><label for="name">Entrer l'alphabet</label></center>
+           <br><center><input type="text" name="name" id="alphabet" value="" class="text ui-widget-content ui-corner-all"></center> 
+            <!-- Allow form submission with keyboard without duplicating the dialog button -->
+            <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+          </fieldset>
+        </form>
+      </div>
+      <div id="dialog-form2" title="Enter langage">
        
+        <form>
+          <fieldset>
+            <center><label for="name">Entrer l'alphabet</label></center>
+           <br><center><input type="text" name="name" id="langage" value="" class="text ui-widget-content ui-corner-all"></center> 
             <!-- Allow form submission with keyboard without duplicating the dialog button -->
             <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
           </fieldset>

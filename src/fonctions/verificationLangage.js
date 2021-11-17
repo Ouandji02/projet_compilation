@@ -3,7 +3,6 @@ const verificationLangage = (alphabet,langage) => {
     for(j=0; j<langage.length;j++){
         if(alphabet.indexOf(langage[j]) == -1){
             if(['*','+','|','.','(',')'].indexOf(langage[j]) == -1){
-                alert(langage[j])
                 return false
             }
             

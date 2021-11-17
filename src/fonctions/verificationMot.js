@@ -3,7 +3,7 @@ const verificationMot = function(mot,langage){
         if(langage.indexOf(mot[i]) == -1){
             return false
         }
-        if(['*','|','.','(',')'].indexOf(mot[i])!=1){
+        if(['*','|','.','(',')'].indexOf(mot[i])!=-1){
             return false
         }
     }

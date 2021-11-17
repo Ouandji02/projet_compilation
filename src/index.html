@@ -14,6 +14,7 @@
     <script src="./fonctions/getAlphabet.js" defer></script>
     <script src="./fonctions/verificationLangage.js"></script>
     <script src="./fonctions/verificationMot.js"></script>
+    <script src="./fonctions/formatage.js"></script>
 
     <script>
         $(function(){
@@ -28,8 +29,9 @@
                     dialog2.dialog( "close" );
                 },
                 Accept: function(){
-                   const success =  verificationLangage(document.querySelector('#alphabet').value, document.querySelector('#langage').value)
+                   const success =  verificationLangage(document.querySelector('#alphabet').value,document.querySelector('#langage').value)
                    if(success){
+                       document.querySelector('#langage').value = formatage(document.querySelector('#langage').value)
                        document.querySelector('#enter-langage').innerHTML = document.querySelector('#langage').value
                        dialog2.dialog("close")
                    }else{
@@ -78,8 +80,10 @@
                 dialog2.dialog("open")
             })
             $('#verify').button().on('click', function(){
+                
                 const success = verificationMot(document.querySelector('#mot').value, document.querySelector('#langage').value)
                 if(success){
+                    //formatage(document.querySelector('#mot').value)
                     alert('bon')
                 }else{
                     alert('ce mot ne respecte pas le langage')

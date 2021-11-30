@@ -15,6 +15,7 @@
     <script src="./fonctions/verificationLangage.js"></script>
     <script src="./fonctions/verificationMot.js"></script>
     <script src="./fonctions/formatage.js"></script>
+    <script src="./test/AFN.test.js" defer></script>
 
     <script>
         $(function(){
@@ -80,11 +81,12 @@
                 dialog2.dialog("open")
             })
             $('#verify').button().on('click', function(){
-                
-                const success = verificationMot(document.querySelector('#mot').value, document.querySelector('#langage').value)
+                const mot = document.querySelector('#mot').value
+                const expr = document.querySelector('#langage').value
+                const success = verificationMot(mot, expr)
                 if(success){
                     //formatage(document.querySelector('#mot').value)
-                    alert('bon')
+                    TestAFN(expr,mot)
                 }else{
                     alert('ce mot ne respecte pas le langage')
                 }        
@@ -124,14 +126,15 @@
                 </div>
 
                 <!-- Zone pour entrer le mot a tester-->
-                <div class="row mt-5">
-                    <div class="col-md-6">
-                        <label for="mot">Entrer le mot a verifier</label>
-                        <input type="text" id='mot' class="form-control" id="mot">
-                    </div>
-                    <div class="col-md-3 mt-4">
-                        <button id="verify" class="btn btn-primary w-100">Verifier</button>
-                    </div>
+                
+                        <div class="row mt-5">
+                            <div class="col-md-6">
+                                <label for="mot">Entrer le mot a verifier</label>
+                                <input type="text" id='mot' class="form-control" id="mot">
+                            </div>
+                            <div class="col-md-3 mt-4">
+                            <button id="verify" class="btn btn-primary w-100">Verifier</button>
+                        </div>
                     <div class="col-md-3 mt-4">
                         <button class="btn btn-success w-100">Tester l'automate</button>
                     </div>

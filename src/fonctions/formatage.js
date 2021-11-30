@@ -12,6 +12,5 @@ const formatage = function(mot){
             motFormat=motFormat+mot[i]
         }
     }
-    alert(motFormat)
     return motFormat
 }

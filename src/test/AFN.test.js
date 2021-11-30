@@ -20,7 +20,6 @@ function TestAFN(regex, input){ // Pour l'instant, on tient beaucoup plus compte
     var postfix = Parse(regex); // Prend la forme infixe et retourne sa forme postfixe pour le travail
     hashTable = {}; // Represente la table de transition en quelque sorte
     finalStack = []; // Pile finale de la creation des etats
-
     CreateAFN(postfix, hashTable, finalStack); // Cree les etats (le tout) et connecte les etats a l'AFN
 
     for (let index = 0; index < Object.keys(hashTable).length; index++) { 

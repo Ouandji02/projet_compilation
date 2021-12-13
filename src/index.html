@@ -61,7 +61,7 @@
 
         <div class="row">
             <div class="col-md-offset-6 col-md-6 text-left">
-                <button class="btn btn-raised btn-block btn-primary" id="button_convert">Afficher automate</button>
+                <button class="btn btn-raised btn-block btn-primary" id="button_convert">tracer l'automate</button>
             </div>
         </div>
 
@@ -72,16 +72,16 @@
 
         <div class="row">
             <div class="form-group">
-                <label for="input_regex" class="col-md-1 control-label">Regex: </label>
+                <label for="input_regex" class="col-md-2 control-label">Mot a tester : </label>
                 <div class="col-md-12">
-                    <input type="text" class="form-control outline-primary" id="input_regex" placeholder="Entrez une expression reguliere">
+                    <input type="text" class="form-control bg-primary" id="input_mot" placeholder="Entrez le mot a tester">
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-offset-6 col-md-6">
-                <button id="button_convert" class="btn btn-raised btn-block btn-primary disabled">Tester</button>
-                <button id="button_convert" class="btn btn-raised btn-block btn-primary disabled">Afficher Automate</button>
+                <button class="btn btn-raised btn-block btn-primary" id="button_verification">Verifier</button>
+                <button class="btn btn-raised btn-block btn-primary">parcourir l'Automate</button>
             </div>
         </div>
     </div>
@@ -99,5 +99,6 @@
     <script src="classes/Etat.js"></script>
     <script src="classes/Transition.js"></script>
     <script src="fonctions/EngineDOM.js"></script>
+    <script src="fonctions/Functions.test.js"></script>
 </body>
 </html>

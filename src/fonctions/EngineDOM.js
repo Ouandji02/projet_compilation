@@ -40,3 +40,18 @@ btn_click.addEventListener('click', () => {
         d3.select("#automate_afn").graphviz().zoom(false).renderDot(dotStr);
     }
 })
+
+var btn_click_verification = document.getElementById("button_verification")
+btn_click_verification.addEventListener('click', () => {
+    langage = document.getElementById("input_langage")
+    mot = document.getElementById("input_mot")
+
+    if(langage.value.length === 0 || mot.value.length === 0){
+        alert("Veuillez indiquer le langage et le mot a tester")
+    }
+    else if(isCorrectExpression(langage.value, mot.value)){
+        alert("Le mot est reconnu !!!")
+    }else{
+        alert("Le mot n'est pas reconnu")
+    }
+})

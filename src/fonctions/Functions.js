@@ -88,14 +88,14 @@ concatenation = (a, b) => {
   
     etat_f_a = a.getEtatFinaux()
   
-    t = new Transition(etat_f_a, b.getEtatInitial(), EPSILON) // Elle n'est pas forcemant neccessaire, mais importante, doit ajouter a chque fois une transitio EPSILON a toute fonction de concatenation
+    //t = new Transition(etat_f_a, b.getEtatInitial(), EPSILON) // Elle n'est pas forcemant neccessaire, mais importante, doit ajouter a chque fois une transitio EPSILON a toute fonction de concatenation
   
     alphabetA = a.getAlphabet()
     alphabetB = b.getAlphabet()
     t_all = []
     t_all = t_all.concat(a.getTransition())
     t_all = t_all.concat(b.getTransition())
-    t_all = t_all.concat(t)
+   // t_all = t_all.concat(t)
     return new Automate(
         etatInitial, 
         b.getEtatFinaux(), 
